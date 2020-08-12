@@ -106,16 +106,12 @@ input:invalid {border-color: red;}
 
 }
 
-.boy.S_second {
-
-}
-
 .boy.E {
 
 }
 
 .boy.W {
-  transform: rotate(450deg);
+
 }
 .boy.walking {
   background-image: url(media/boy-walking.png);
