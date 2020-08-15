@@ -255,58 +255,8 @@ const boy = new Thing(cells[51][51],{
   age: 0,
   xpPrice: 0});
 
-
-// Rotation
-let htmlBoy = document.getElementById("boyCell");
-let turnLeft = -90;
-let turnRight = 90
-let deg = 0;
-
-document.addEventListener('keydown',event => {
-  if (event.code == 'KeyA') {
-    if (htmlBoy.classList.contains('S') === true) {
-      deg = + deg + turnRight;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    } else if (htmlBoy.classList.contains('N') === true) {
-      deg = + deg + turnLeft;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    }
-  }
-
-  if (event.code == 'KeyW') {
-    if (htmlBoy.classList.contains('W') === true) {
-      deg = + deg + turnRight;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    } else if (htmlBoy.classList.contains('E') === true) {
-      deg = + deg + turnLeft;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    }
-  }
-
-  if (event.code == 'KeyD') {
-    if (htmlBoy.classList.contains('N') === true) {
-      deg = + deg + turnRight;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    } else if (htmlBoy.classList.contains('S') === true) {
-      deg = + deg + turnLeft;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    }
-  }
-
-  if (event.code == 'KeyS') {
-    if (htmlBoy.classList.contains('E') === true) {
-      deg = + deg + turnRight;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    } else if (htmlBoy.classList.contains('W') === true) {
-      deg = + deg + turnLeft;
-      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
-    }
-  }
-});
-
 boy.move = dir =>
 {
-  if (boy.state==="recovering") return boy.set("state","walking");
   switch (boy.dir+"->"+dir)
   {
     case "S->E": case "E->N": case "N->W": case "W->S": boy.turn("left"); break;
@@ -351,6 +301,59 @@ boy.hit = cell =>
     cell.getThing().getHit();
   }
 }
+
+// Rotation
+let htmlBoy = document.getElementById("boyCell");
+let turnLeft = -90;
+let turnRight = 90
+let deg = 0;
+
+
+document.addEventListener('keydown',event => {
+
+  if (event.code == 'KeyA') {
+    if (htmlBoy.classList.contains('S') === true) {
+      deg = + deg + turnRight;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    } else if (htmlBoy.classList.contains('N') === true) {
+      deg = + deg + turnLeft;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    }
+  }
+
+  if (event.code == 'KeyW') {
+    if (htmlBoy.classList.contains('W') === true) {
+      deg = + deg + turnRight;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    } else if (htmlBoy.classList.contains('E') === true) {
+      deg = + deg + turnLeft;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    }
+  }
+
+  if (event.code == 'KeyD') {
+    if (htmlBoy.classList.contains('N') === true) {
+      deg = + deg + turnRight;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    } else if (htmlBoy.classList.contains('S') === true) {
+      deg = + deg + turnLeft;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    }
+  }
+
+  if (event.code == 'KeyS') {
+    if (htmlBoy.classList.contains('E') === true) {
+      deg = + deg + turnRight;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    } else if (htmlBoy.classList.contains('W') === true) {
+      deg = + deg + turnLeft;
+      htmlBoy.style.cssText = "transform: rotate(" + deg + "deg);"
+    }
+  }
+})
+
+
+
 
 boy.getXp = xp =>
 {
